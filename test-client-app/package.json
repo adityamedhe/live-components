@@ -1,0 +1,19 @@
+{
+  "name": "test-client-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "entitystore-watch-manager-mongo": "file:../entitystore-watch-manager-mongo",
+    "mongodb": "^3.3.2"
+  },
+  "devDependencies": {
+    "@types/mongodb": "3.3.1"
+  }
+}

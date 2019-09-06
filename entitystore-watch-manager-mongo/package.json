@@ -1,0 +1,19 @@
+{
+  "name": "entitystore-watch-manager-mongo",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "mongodb": "3.0.0"
+  },
+  "devDependencies": {
+    "@types/mongodb": "3.3.1"
+  }
+}
