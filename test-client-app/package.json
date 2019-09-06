@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "client-manager": "file:../client-manager",
     "entitystore-watch-manager-mongo": "file:../entitystore-watch-manager-mongo",
     "mongodb": "^3.3.2"
   },
