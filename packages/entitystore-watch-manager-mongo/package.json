@@ -5,7 +5,9 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "compile:watch": "tsc --watch --preserveWatchOutput" 
   },
   "keywords": [],
   "author": "",
@@ -17,6 +19,6 @@
     "@types/mongodb": "3.3.1"
   },
   "dependencies": {
-    "live-components-api": "file:../live-components-api"
+    "live-components-api": "1.0.0"
   }
 }

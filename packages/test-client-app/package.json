@@ -4,15 +4,17 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "compile:watch": "tsc --watch --preserveWatchOutput"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "client-manager": "file:../client-manager",
-    "entitystore-watch-manager-mongo": "file:../entitystore-watch-manager-mongo",
-    "live-components-api": "file:../live-components-api",
+    "client-manager": "1.0.0",
+    "entitystore-watch-manager-mongo": "1.0.0",
+    "live-components-api": "1.0.0",
     "mongodb": "^3.3.2"
   },
   "devDependencies": {
