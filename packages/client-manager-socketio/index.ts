@@ -1,6 +1,6 @@
-import socketio from 'socket.io';
+import socketio from 'socket.io';    
 import { Server, createServer } from 'http';
-import {ClientManager, EntityStoreWatchManager} from 'live-components-api';
+import { ClientManager, EntityStoreWatchManager, ClientMessages }  from 'live-components-api';
 
 export class ClientManagerSocketIO implements ClientManager {
     private io: socketio.Server;
@@ -36,26 +36,25 @@ export class ClientManagerSocketIO implements ClientManager {
         this.io = socketio(httpServerToUse);
         
         this.io.on('connection', (socket) => {
-            console.log('Someone connected');
-
-            socket.on('subscribeToEntity', (message) => {
-                console.log('Subscribing this one to ' + message.entityId);
+            console.log(`Client connected: ${socket.id}`);
+            socket.on('subscribeToEntity', (message: ClientMessages.SubscribeToEntity) => {
+                console.log(`Subscribing client ${socket.id} to ${message.entityId}`);
                 socket.join(message.entityId);
+            });
+
+            socket.on('unsubscribeFromEntity', (message: ClientMessages.UnsubscribeFromEntity) => {
+                console.log(`Unsubscribing client ${socket.id} from ${message.entityId}`);
+                socket.leave(message.entityId);
             });
         });
 
+
         this.entityStoreWatchManager.on('entityChanged', (payload) => {
-            console.log('Entity changed, ', payload.entity.id);
-            this.io.to(payload.entity.id).emit('entityChanged', payload);
+            const changedEntityId = payload.entity.id;
+            
+            console.log('Entity changed, ', changedEntityId);
+            this.io.to(changedEntityId).emit('entityChanged', payload);
         });
-    }
-
-    public subscribe = () => {
-
-    }
-
-    public unsubscribe = () => {
-        
     }
 
     public setEntityStoreWatchManager = (entityStoreWatchManager: EntityStoreWatchManager) => {
