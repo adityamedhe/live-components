@@ -7,9 +7,13 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "compile": "tsc",
-    "compile:watch": "tsc --watch --preserveWatchOutput"
+    "compile:watch": "tsc --watch --preserveWatchOutput",
+    "prettify": "prettier"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "prettier": "^1.18.2"
+  }
 }
