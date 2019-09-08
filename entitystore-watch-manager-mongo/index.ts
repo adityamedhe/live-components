@@ -1,18 +1,32 @@
-import { Collection } from 'mongodb';
+import { ClientManager, EntityStoreWatchManager } from 'live-components-api';
+import { Collection, ChangeStream } from 'mongodb';
+import { EventEmitter } from 'events';
 
-export class EntityStoreWatchManagerMongo {
+export class EntityStoreWatchManagerMongo extends EventEmitter implements EntityStoreWatchManager {
     private collection: Collection;
 
+    //@ts-ignore -- `changeStream` is assigned in `registerWatch`, which *is* called in the constructor
+    private changeStream: ChangeStream;
+
+    private registerWatch() {
+      this.changeStream = this.collection.watch().on('change', (chunk) => {
+        this.emit('entityChanged', {chunk});
+      });
+    }
+
     constructor(collection: Collection) {
+        super();    
         this.collection = collection;
+
+        this.registerWatch();
     }
 
-    public setCollection = (collection: Collection) => {
-        this.collection = collection;
+    resumeWatch = () => {
+      this.registerWatch();
     }
 
-    public enableWatch = async () => {
-        this.collection.watch().on('change', (chunk) => console.log(chunk));
-        console.log(`Started watching ${this.collection.collectionName}`);
+    pauseWatch = () => {
+      this.changeStream.close();
+      this.changeStream.removeAllListeners();
     }
 }

@@ -12,6 +12,7 @@
   "dependencies": {
     "client-manager": "file:../client-manager",
     "entitystore-watch-manager-mongo": "file:../entitystore-watch-manager-mongo",
+    "live-components-api": "file:../live-components-api",
     "mongodb": "^3.3.2"
   },
   "devDependencies": {
