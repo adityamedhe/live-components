@@ -10,7 +10,7 @@ export class EntityStoreWatchManagerMongo extends EventEmitter implements Entity
 
     private registerWatch() {
       this.changeStream = this.collection.watch().on('change', (chunk) => {
-        this.emit('entityChanged', {chunk});
+        this.emit('entityChanged', {entity: {...chunk, id: chunk.documentKey._id}});
       });
     }
 

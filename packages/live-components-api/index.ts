@@ -1,5 +1,9 @@
+export interface Entity {
+    id: string;
+}
+
 export interface EntityStoreWatchManagerEvents {
-    entityChanged: {entity: any, metadata?: any};
+    entityChanged: {entity: Entity & any, metadata?: any};
 }
 
 /**
@@ -20,9 +24,7 @@ export interface EntityStoreWatchManager {
  * API and transport to exchange subscription/unsubscription messages and actual data changes
  */
 export interface ClientManager {
+    setEntityStoreWatchManager: (entityStoreWatchManager: EntityStoreWatchManager) => void;
     subscribe: (clientId: string, entityId: string) => void;
     unsubscribe: (clientId: string, entityId: string) => void;
-
-    // Used by the EntityStoreWatchManager to inform the ClientManager of a change in a subscribed entity
-    handleEntityChange: (collection: string, entityId: string, doc: any) => void;
 }

@@ -8,4 +8,5 @@
 ## Core API Package
 ## Entity Watch Manager `(entitystore-watch-manager-mongo)`
 ## Client Manager `(client-manager)`
-## Test Client Application `(test-client-app)`
+## Test Server Application `(test-server)`
+## Test Client Application `(test-client)`
