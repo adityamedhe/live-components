@@ -1,6 +1,10 @@
 {
   "name": "root",
   "private": true,
+  "scripts": {
+    "prettify:all": "lerna run --parallel prettify -- -- --write *.ts",
+    "compile:watch:all": "lerna run --parallel compile:watch"
+  },
   "devDependencies": {
     "lerna": "^3.16.4"
   }
