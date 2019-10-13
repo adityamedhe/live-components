@@ -79,4 +79,8 @@ export namespace ClientMessages {
   export interface UnsubscribeFromEntity {
     entityId: string;
   }
+
+  export interface EntityChanged<T> {
+    entity: T;
+  }
 }

@@ -18,7 +18,7 @@ app.use(express.static('./static'));
     restaurant,
   );
 
-  const clientManager = new ClientManagerSocketIO(
+  const clientManager = new ClientManagerSocketIO<any>(
     entityWatchManagerMongo,
     server,
   );

@@ -6,7 +6,7 @@ import {
   ClientMessages,
 } from 'live-components-api';
 
-export class ClientManagerSocketIO implements ClientManager {
+export class ClientManagerSocketIO<T> implements ClientManager {
   private io: socketio.Server;
   private entityStoreWatchManager: EntityStoreWatchManager;
 
@@ -74,8 +74,14 @@ export class ClientManagerSocketIO implements ClientManager {
     this.entityStoreWatchManager.on('entityChanged', payload => {
       const changedEntityId = payload.entity.id;
 
-      console.log('Entity changed, ', changedEntityId);
-      this.io.to(changedEntityId).emit('entityChanged', payload);
+      console.log(
+        'LiveComponents ClientManager :: Entity changed, ',
+        changedEntityId,
+      );
+
+      this.io
+        .to(changedEntityId)
+        .emit('entityChanged', payload as ClientMessages.EntityChanged<T>);
     });
   }
 
