@@ -2,8 +2,9 @@
   "name": "root",
   "private": true,
   "scripts": {
-    "prettify:all": "lerna run --parallel prettify -- -- --write *.ts",
-    "compile:watch:all": "lerna run --parallel compile:watch"
+    "prettify:all": "lerna run --parallel prettify -- -- --write **/*.{ts,tsx}",
+    "compile:watch:all": "lerna run --parallel compile:watch",
+    "compile:all": "lerna run --parallel compile"
   },
   "devDependencies": {
     "lerna": "^3.16.4"

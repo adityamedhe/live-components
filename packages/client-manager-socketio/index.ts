@@ -12,7 +12,7 @@ export class ClientManagerSocketIO implements ClientManager {
 
   constructor(
     entityStoreWatchManager: EntityStoreWatchManager,
-    httpServer?: Server,
+    httpServerOrPort: Server | number,
   ) {
     /**
      * Initialize the EntityStoreWatchManager instance that this client manager
@@ -32,11 +32,20 @@ export class ClientManagerSocketIO implements ClientManager {
 
     let httpServerToUse: Server;
 
-    if (httpServer) {
-      httpServerToUse = httpServer;
+    if (httpServerOrPort instanceof Server) {
+      console.log(
+        `LiveComponents ClientManager :: Reusing HttpServer instance provided.`,
+      );
+
+      httpServerToUse = httpServerOrPort as Server; // httpServerOrPort is an HTTP Server.
     } else {
+      console.log(
+        `LiveComponents ClientManager :: Starting new HttpServer at port ${httpServerOrPort}`,
+      );
+
+      // httpServerOrPort is a port number; we need to create a server listening on that port.
       httpServerToUse = createServer();
-      httpServerToUse.listen(5001);
+      httpServerToUse.listen(httpServerOrPort as number);
     }
 
     this.io = socketio(httpServerToUse);
