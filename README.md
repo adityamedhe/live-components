@@ -43,5 +43,5 @@
 TODO:
 
 - [X] Fix types -- add generics
-- [ ] Support initial retrieval so that current value is displayed even before first change
+- [X] Support initial retrieval so that current value is displayed even before first change
 - [ ] Enhance and create a meaningful `test-server` and `test-client`

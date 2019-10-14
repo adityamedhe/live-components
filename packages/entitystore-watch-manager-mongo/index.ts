@@ -1,10 +1,9 @@
 import {
-  ClientManager,
   EntityStoreWatchManager,
   EntityStoreWatchManagerEventPayloads,
   LiveComponentEntity,
 } from 'live-components-api';
-import { Collection, ChangeStream } from 'mongodb';
+import { Collection, ChangeStream, ObjectId } from 'mongodb';
 import { EventEmitter } from 'events';
 
 export class EntityStoreWatchManagerMongo<T extends LiveComponentEntity>
@@ -37,5 +36,9 @@ export class EntityStoreWatchManagerMongo<T extends LiveComponentEntity>
   pauseWatch = () => {
     this.changeStream.close();
     this.changeStream.removeAllListeners();
+  };
+
+  getEntity = async (entityId: string) => {
+    return this.collection.findOne({ _id: new ObjectId(entityId) });
   };
 }

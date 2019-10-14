@@ -53,11 +53,21 @@ export class ClientManagerSocketIO<T extends LiveComponentEntity>
     this.io = socketio(httpServerToUse);
 
     this.io.on('connection', socket => {
-      console.log(`Client connected: ${socket.id}`);
+      console.log(
+        `LiveComponents ClientManagerSocketIO :: Client connected: ${socket.id}`,
+      );
+
       socket.on(
         'subscribeToEntity',
-        (message: ClientMessages.SubscribeToEntity) => {
-          console.log(`Subscribing client ${socket.id} to ${message.entityId}`);
+        async (message: ClientMessages.SubscribeToEntity) => {
+          console.log(
+            `LiveComponents ClientManagerSocketIO :: Subscribing client ${socket.id} to ${message.entityId}, also sending current entity value`,
+          );
+          socket.emit('entityChanged', {
+            entity: await this.entityStoreWatchManager.getEntity(
+              message.entityId,
+            ),
+          });
           socket.join(message.entityId);
         },
       );

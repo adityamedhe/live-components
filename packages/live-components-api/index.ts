@@ -2,7 +2,6 @@
  * This interface documents what we mandatorily want to be present in an
  * entity that is to be transported using the LiveComponents platform.
  */
-
 export interface LiveComponentEntity {
   // `id` is intentionally `any` as its data type can vary across applications.
   id: any;
@@ -49,6 +48,7 @@ export interface EntityStoreWatchManager<T extends LiveComponentEntity> {
   ): void;
   resumeWatch: () => void;
   pauseWatch: () => void;
+  getEntity: (entityId: any) => Promise<T | null>;
 }
 
 /**

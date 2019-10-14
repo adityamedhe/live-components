@@ -1,7 +1,7 @@
 import express from 'express';
+import { connect } from 'mongodb';
 import { EntityStoreWatchManagerMongo } from 'entitystore-watch-manager-mongo';
 import { ClientManagerSocketIO } from 'client-manager-socketio';
-import { connect } from 'mongodb';
 import { Server } from 'http';
 import {
   EntityStoreWatchManager,
