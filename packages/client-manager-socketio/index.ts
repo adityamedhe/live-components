@@ -4,14 +4,16 @@ import {
   ClientManager,
   EntityStoreWatchManager,
   ClientMessages,
+  LiveComponentEntity,
 } from 'live-components-api';
 
-export class ClientManagerSocketIO<T> implements ClientManager {
+export class ClientManagerSocketIO<T extends LiveComponentEntity>
+  implements ClientManager<T> {
   private io: socketio.Server;
-  private entityStoreWatchManager: EntityStoreWatchManager;
+  private entityStoreWatchManager: EntityStoreWatchManager<T>;
 
   constructor(
-    entityStoreWatchManager: EntityStoreWatchManager,
+    entityStoreWatchManager: EntityStoreWatchManager<T>,
     httpServerOrPort: Server | number,
   ) {
     /**
@@ -86,7 +88,7 @@ export class ClientManagerSocketIO<T> implements ClientManager {
   }
 
   public setEntityStoreWatchManager = (
-    entityStoreWatchManager: EntityStoreWatchManager,
+    entityStoreWatchManager: EntityStoreWatchManager<T>,
   ) => {
     this.entityStoreWatchManager = entityStoreWatchManager;
   };

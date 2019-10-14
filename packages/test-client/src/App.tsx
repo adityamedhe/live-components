@@ -8,22 +8,28 @@ export interface IRestaurant {
   name: string;
 }
 
-export interface OwnProps {
-  inputNumber: number;
+export interface IAppProps {
+  inputNumber?: number;
 }
 
 export class App extends React.Component<
-  ILiveComponentHocProps<IRestaurant> & OwnProps
+  ILiveComponentHocProps<IRestaurant> & IAppProps
 > {
   componentDidMount() {
-    this.props.subscribeToEntity('5da31c373e73f02575b09f13');
+    this.props.subscribeToEntity('5da3f612857f9952f114c231');
   }
 
   render() {
-    return <div>{JSON.stringify(this.props.entity)}</div>;
+    const { entity } = this.props;
+
+    return (
+      <div>
+        Restaurant's name is <b>{entity && entity.name}</b>
+      </div>
+    );
   }
 }
 
-export default makeComponentLive({
+export default makeComponentLive<IRestaurant, IAppProps>({
   liveComponentServerUri: 'ws://localhost:5000',
 })(App);

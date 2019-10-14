@@ -34,6 +34,15 @@
 ### Test Server Application
 - The test application that uses the implementations of `EntityStoreWatchManager` and `ClientManager` is located in the `test-server` directory. It is an illustrative application that imports both the packages, configures them to work together to serve client requests for listening to entity changes.
 
-### LiveComponents Client [TODO]
-- WIP. This will be a client side library that knows how to communicate with a specific implementation of `ClientManager` and provide abstractions to listen and respond to entity changes in the entity store by updating the user interface in the browser.
+### User Interface Agent
+- This will be a client side library that knows how to communicate with a specific implementation of `ClientManager` and provide abstractions to listen and respond to entity changes in the entity store by updating the user interface in the browser.
 - We plan to do a sample implementation using ReactJS and SocketIO client libraries. In that way we can create a base React component that knows how to communicate with the server and get the entity changes and then allow the programmer to extend such a component so that they may provide custom UI using the data retrieved from the server. Refer ReactJS docs for more details.
+
+---
+
+TODO:
+
+- [X] Fix types -- add generics
+- [ ] Loading prop to be injected in wrapped component
+- [ ] Support initial retrieval so that current value is displayed even before first change
+- [ ] Enhance and create a meaningful `test-server` and `test-client`

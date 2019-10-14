@@ -1,10 +1,11 @@
 /**
- * A single entity in the entity store. We need it to have
- * at least one mandatory field, i.e. the entity ID. This interface
- * documents the same contract.
+ * This interface documents what we mandatorily want to be present in an
+ * entity that is to be transported using the LiveComponents platform.
  */
-export interface Entity {
-  id: string;
+
+export interface LiveComponentEntity {
+  // `id` is intentionally `any` as its data type can vary across applications.
+  id: any;
 }
 
 /**
@@ -15,14 +16,14 @@ export namespace EntityStoreWatchManagerEventPayloads {
   /**
    * Message that is fired when the store detects that an entity has changed.
    */
-  export interface EntityChanged {
+  export interface EntityChanged<T extends LiveComponentEntity> {
     /**
      * By this we mean the entity can be of any shape but it mandatorily
      * needs to have an ID which is defined in the interface Entity.
      *
      * TODO: Find out whether this is the correct way to enforce such a contract.
      */
-    entity: Entity & any;
+    entity: T;
     metadata?: any;
   }
 }
@@ -31,20 +32,20 @@ export namespace EntityStoreWatchManagerEventPayloads {
  * An interface documenting the various events that the
  * EntityStoreWatchManager can fire.
  */
-export interface EntityStoreWatchManagerEvents {
-  entityChanged: EntityStoreWatchManagerEventPayloads.EntityChanged;
+export interface EntityStoreWatchManagerEvents<T extends LiveComponentEntity> {
+  entityChanged: EntityStoreWatchManagerEventPayloads.EntityChanged<T>;
 }
 
 /**
  * We expose this EntityStoreWatchManager that allows to add or remove collections from the watch.
  * It does not deal with the subscriptions or user side of things, it's job is only to
- * watch (or stop watching) a collection, and inform the connected subscription manager
+ * watch (or stop watching) a collection, and inform the other components through events
  * when an entity has changed, stating the new entity
  */
-export interface EntityStoreWatchManager {
-  on<K extends keyof EntityStoreWatchManagerEvents>(
+export interface EntityStoreWatchManager<T extends LiveComponentEntity> {
+  on<K extends keyof EntityStoreWatchManagerEvents<T>>(
     s: K,
-    listener: (handler: EntityStoreWatchManagerEvents[K]) => void,
+    listener: (handler: EntityStoreWatchManagerEvents<T>[K]) => void,
   ): void;
   resumeWatch: () => void;
   pauseWatch: () => void;
@@ -55,15 +56,15 @@ export interface EntityStoreWatchManager {
  * from entities. Internally maintains a client entity mapping. Exposes a implementation specific
  * API and transport to exchange subscription/unsubscription messages and actual data changes
  */
-export interface ClientManager {
+export interface ClientManager<T extends LiveComponentEntity> {
   setEntityStoreWatchManager: (
-    entityStoreWatchManager: EntityStoreWatchManager,
+    entityStoreWatchManager: EntityStoreWatchManager<T>,
   ) => void;
 }
 
 /**
  * A namespace which defines the contract for the various messages that can
- * be received from the client. This interface is kept in the API and not left
+ * be sent to/received from the client. This interface is kept in the API and not left
  * to the discretion of the individual implementations of `ClientManager`, because
  * we want to enforce a standard contract for client to send messages.
  *
@@ -80,7 +81,7 @@ export namespace ClientMessages {
     entityId: string;
   }
 
-  export interface EntityChanged<T> {
+  export interface EntityChanged<T extends LiveComponentEntity> {
     entity: T;
   }
 }
