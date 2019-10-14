@@ -12,7 +12,6 @@ export interface ILiveComponentHocProps<T> {
 
 export interface ILiveComponentState<T> {
   entity?: T | null;
-  entityLoading: boolean;
 }
 
 /**
@@ -43,7 +42,6 @@ export const makeComponentLive = <EntityType extends {}, OwnProps extends {}>(
 
     state: ILiveComponentState<EntityType> = {
       entity: null,
-      entityLoading: false,
     };
 
     constructor(props: any) {
