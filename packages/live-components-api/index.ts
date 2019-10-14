@@ -16,12 +16,6 @@ export namespace EntityStoreWatchManagerEventPayloads {
    * Message that is fired when the store detects that an entity has changed.
    */
   export interface EntityChanged<T extends LiveComponentEntity> {
-    /**
-     * By this we mean the entity can be of any shape but it mandatorily
-     * needs to have an ID which is defined in the interface Entity.
-     *
-     * TODO: Find out whether this is the correct way to enforce such a contract.
-     */
     entity: T;
     metadata?: any;
   }
@@ -37,7 +31,7 @@ export interface EntityStoreWatchManagerEvents<T extends LiveComponentEntity> {
 
 /**
  * We expose this EntityStoreWatchManager that allows to add or remove collections from the watch.
- * It does not deal with the subscriptions or user side of things, it's job is only to
+ * It does not deal with the subscriptions or user side of things, its job is only to
  * watch (or stop watching) a collection, and inform the other components through events
  * when an entity has changed, stating the new entity
  */

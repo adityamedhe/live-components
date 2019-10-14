@@ -17,26 +17,29 @@
 - Each directory is a separate NPM module that can be published and consumed independently. We recommend as a best practice to use the interfaces defined in the API to invoke the functionalities instead of using concrete implementation references.
 
 ## Components
-### Core API Package `(live-components-api)`
+### Core API Package (`live-components-api`)
 - This package contains the interfaces that document the contracts and the message structures that the components of the system use to communicate within themselves and also to the external world.
 
-### Entity Store Watch Manager 
+### Entity Store Watch Manager (`entity-store-watch-manager-mongo`)
 - The `EntityStoreWatchManager` is a specification that is responsible for watching an entity store and taking some action whenever an entity changes. In the JavaScript implementation of `EntityStoreWatchManager`, we expect it to raise specified events with predefined message payload structures whenever an entity is changed.
 - We have built an instance implementation of the `EntityStoreWatchManager` that supports MongoDB and watches over a MongoDB collection. It resides in the module named `entitystore-watch-manager-mongo`.
 
-### Client Manager
+### Client Manager (`client-manager-socketio`)
 - The `ClientManager` is a specification for a component that listens to an `EntityStoreWatchManager`, and also maintains communications with interested clients to communicate the changes it receives from the `EntityStoreWatchManager`.
 - The sample implementation that we have developed in this project (`ClientManagerSocketIO`) uses the popular Socket.IO library, which internally uses WebSockets to communicate with clients in realtime. Since it is one of the most popular and easy-to-use libraries to implement two-way realtime communication with the browser, it was chosen to have the sample implementation of `ClientManager` using Socket.IO.
 - It exposes an endpoint that allows clients to connect with using TCP and subscribe/unsubscribe to/from changes to the entities by specifying the ID of the entity that they are interested in.
 - All the communication messages between the client and the client manager is documented using message format contracts in the `live-components-api` package.
 - The `ClientManagerSocketIO` maintains the list of clients interested in changes to an entity and when the entity changes, emits a broadcase event to all the interested clients.
 
-### Test Server Application
+### Test Server Application (`test-server`)
 - The test application that uses the implementations of `EntityStoreWatchManager` and `ClientManager` is located in the `test-server` directory. It is an illustrative application that imports both the packages, configures them to work together to serve client requests for listening to entity changes.
 
-### User Interface Agent
-- This will be a client side library that knows how to communicate with a specific implementation of `ClientManager` and provide abstractions to listen and respond to entity changes in the entity store by updating the user interface in the browser.
-- We plan to do a sample implementation using ReactJS and SocketIO client libraries. In that way we can create a base React component that knows how to communicate with the server and get the entity changes and then allow the programmer to extend such a component so that they may provide custom UI using the data retrieved from the server. Refer ReactJS docs for more details.
+### User Interface Agent (`ui-agent-react-socketio`)
+- This is a client side library that knows how to communicate with a specific implementation of `ClientManager` (in this case, `client-manager-socketio`) and provide abstractions to listen and respond to entity changes in the entity store by updating the user interface in the browser.
+- We have a sample implementation using ReactJS and SocketIO client libraries. In that way we can create a base React component that knows how to communicate with the server and get the entity changes and then allow the programmer to extend such a component so that they may provide custom UI using the data retrieved from the server. Refer ReactJS docs for more details.
+
+### Test Client Application (`test-client`)
+- A sample client-side application build in ReactJS that uses the `ui-agent-react-socketio` library to avail the live components functionality, and create a dashboard that shows some figures updating in real time.
 
 ---
 

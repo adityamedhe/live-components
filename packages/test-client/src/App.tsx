@@ -1,11 +1,13 @@
 import React from 'react';
+import { LiveComponentEntity } from 'live-components-api';
 import {
   ILiveComponentHocProps,
   makeComponentLive,
 } from 'ui-agent-react-socketio';
 
-export interface IRestaurant {
+export interface IRestaurant extends LiveComponentEntity {
   name: string;
+  address: string;
 }
 
 export interface IAppProps {
@@ -14,7 +16,7 @@ export interface IAppProps {
 
 export class App extends React.Component<
   ILiveComponentHocProps<IRestaurant> & IAppProps
-> {
+  > {
   componentDidMount() {
     this.props.subscribeToEntity('5da3f612857f9952f114c231');
   }
@@ -22,9 +24,14 @@ export class App extends React.Component<
   render() {
     const { entity } = this.props;
 
+    if (!entity) {
+      return null;
+    }
+
     return (
-      <div>
-        Restaurant's name is <b>{entity && entity.name}</b>
+      <div style={{ border: '1px grey solid', padding: 20, display: 'inline-block', }}>
+        <div style={{ fontSize: 24 }}>{entity.name}</div>
+        <i>{entity.address}</i>
       </div>
     );
   }

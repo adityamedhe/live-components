@@ -1,6 +1,6 @@
 import * as React from 'react';
 import io from 'socket.io-client';
-import { ClientMessages } from 'live-components-api';
+import { ClientMessages, LiveComponentEntity } from 'live-components-api';
 
 /**
  * The shape of the props that are injected into the wrapped component by this HOC.
@@ -27,7 +27,7 @@ export interface ILiveComponentConfigurationProps {
   liveComponentServerUri: string;
 }
 
-export const makeComponentLive = <EntityType extends {}, OwnProps extends {}>(
+export const makeComponentLive = <EntityType extends LiveComponentEntity, OwnProps extends {}>(
   configuration: ILiveComponentConfigurationProps,
 ) => (
   PassedComponent: React.ComponentClass<
@@ -44,7 +44,7 @@ export const makeComponentLive = <EntityType extends {}, OwnProps extends {}>(
       entity: null,
     };
 
-    constructor(props: any) {
+    constructor(props: OwnProps) {
       super(props);
       const { liveComponentServerUri } = configuration;
 
@@ -66,7 +66,7 @@ export const makeComponentLive = <EntityType extends {}, OwnProps extends {}>(
 
       this.socket.on(
         'entityChanged',
-        (payload: ClientMessages.EntityChanged<any>) =>
+        (payload: ClientMessages.EntityChanged<EntityType>) =>
           this.setState({ entity: payload.entity }),
       );
     };
