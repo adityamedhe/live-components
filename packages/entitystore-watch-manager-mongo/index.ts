@@ -15,9 +15,20 @@ export class EntityStoreWatchManagerMongo<T extends LiveComponentEntity>
   private changeStream: ChangeStream;
 
   private registerWatch() {
-    this.changeStream = this.collection.watch().on('change', chunk => {
+    this.changeStream = this.collection.watch().on('change', (chunk: any) => {
+      let updateToSend: T;
+
+      switch (chunk.operationType) {
+        case 'update':
+          updateToSend = chunk.updateDescription.updatedFields;
+          break;
+        case 'replace':
+          updateToSend = chunk.fullDocument;
+          break;
+      }
+
       this.emit('entityChanged', {
-        entity: { id: chunk.fullDocument._id, ...chunk.fullDocument },
+        entity: { id: chunk.documentKey._id.toString(), ...updateToSend! },
       } as EntityStoreWatchManagerEventPayloads.EntityChanged<T>);
     });
   }

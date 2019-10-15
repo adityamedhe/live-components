@@ -47,4 +47,5 @@ TODO:
 
 - [X] Fix types -- add generics
 - [X] Support initial retrieval so that current value is displayed even before first change
+- [X] For the MongoDB implementation of Entity Store Watch Manager, handle differences between document replaces and updates
 - [ ] Enhance and create a meaningful `test-server` and `test-client`

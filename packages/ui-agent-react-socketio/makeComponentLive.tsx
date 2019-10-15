@@ -27,7 +27,10 @@ export interface ILiveComponentConfigurationProps {
   liveComponentServerUri: string;
 }
 
-export const makeComponentLive = <EntityType extends LiveComponentEntity, OwnProps extends {}>(
+export const makeComponentLive = <
+  EntityType extends LiveComponentEntity,
+  OwnProps extends {}
+>(
   configuration: ILiveComponentConfigurationProps,
 ) => (
   PassedComponent: React.ComponentClass<
@@ -67,7 +70,12 @@ export const makeComponentLive = <EntityType extends LiveComponentEntity, OwnPro
       this.socket.on(
         'entityChanged',
         (payload: ClientMessages.EntityChanged<EntityType>) =>
-          this.setState({ entity: payload.entity }),
+          this.setState(prevState => {
+            return {
+              ...prevState,
+              entity: { ...prevState.entity, ...payload.entity } as EntityType,
+            };
+          }),
       );
     };
 

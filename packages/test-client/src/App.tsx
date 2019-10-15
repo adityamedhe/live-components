@@ -16,9 +16,9 @@ export interface IAppProps {
 
 export class App extends React.Component<
   ILiveComponentHocProps<IRestaurant> & IAppProps
-  > {
+> {
   componentDidMount() {
-    this.props.subscribeToEntity('5da3f612857f9952f114c231');
+    this.props.subscribeToEntity('5da54d7388258b62ea8633b4');
   }
 
   render() {
@@ -29,8 +29,8 @@ export class App extends React.Component<
     }
 
     return (
-      <div style={{ border: '1px grey solid', padding: 20, display: 'inline-block', }}>
-        <div style={{ fontSize: 24 }}>{entity.name}</div>
+      <div style={divStyle}>
+        <div style={{ fontSize: 24, fontWeight: 'bold' }}>{entity.name}</div>
         <i>{entity.address}</i>
       </div>
     );
@@ -40,3 +40,12 @@ export class App extends React.Component<
 export default makeComponentLive<IRestaurant, IAppProps>({
   liveComponentServerUri: 'ws://localhost:5000',
 })(App);
+
+const divStyle = {
+  border: '1px grey solid',
+  padding: '20px 40px',
+  backgroundColor: '#efefef',
+  display: 'inline-block',
+  borderRadius: 4,
+  boxShadow: '1px 1px 1px grey',
+};
