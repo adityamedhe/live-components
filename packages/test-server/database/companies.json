@@ -1,0 +1,134 @@
+[
+  {
+    "name": "Microsoft",
+    "stockSymbol": "MSFT",
+    "logo": "http://pngimg.com/uploads/microsoft/microsoft_PNG14.png",
+    "news": [
+      {
+        "headline": "Microsoft gives Satya Nadella a 66% raise, citing 'strategic leadership'",
+        "detail": "Satya Nadella received more money from Microsoft in the most recent fiscal year as the company achieved business targets and grew its stock price. The CEO received $42.9 million in total compensation, mostly in stock awards, in the 2019 fiscal year that ended on June 30, according to Microsoft’s annual proxy statement, which came out on Wednesday. The figure is up 66% from the prior fiscal year but lower than the $84.3 million Nadella received in the 2014 fiscal year, when he took over from Steve Ballmer.",
+        "link": "https://www.cnbc.com/2019/10/16/microsoft-gives-ceo-satya-nadella-a-raise-for-2019-fiscal-year.html"
+      },
+      {
+        "headline": "You’ll need to eat Taco Bell to get Microsoft’s Xbox Elite 2 controller early",
+        "detail": "Microsoft is teaming up with Taco Bell once again to launch a limited edition Xbox One X console. The software giant unveiled a similar console last year with Taco Bell’s signature “ring” when it’s powered on — and this console has the same ring — but this year Microsoft is bundling in the new Xbox Elite 2 controller, too. Xbox fans will need to purchase Taco Bell’s Double Chalupa Box to try and win this special bundle, dubbed the Xbox One X Eclipse Limited Edition. The promotion starts today, meaning if you’re a lucky winner then you’ll be able to get an Elite 2 controller well before its release on November 4th, and without the $179.99 price tag.",
+        "link": "https://www.theverge.com/2019/10/16/20916937/microsoft-xbox-one-x-eclipse-limited-edition-console-elite-2-controller-taco-bell"
+      },
+      {
+        "headline": "Microsoft launches new open-source projects around Kubernetes and microservices",
+        "detail": "Microsoft  today announced two new open-source projects: Dapr, a portable, event-driven runtime that takes some of the complexity out of building microservices, and the Open Application Model (OAM), a specification that allows developers to define the resources their applications need to run on Kubernetes clusters and which Microsoft developed in cooperation with Alibaba Cloud. As Microsoft Azure CTO Mark Russinovich  told me ahead of today’s launch, OAM very much solves a problem that a lot of developers and ops teams are facing every day. “If you take a look just at the Kubernetes ecosystem, Kubernetes  has no concept of an application,” he explained.",
+        "link": "https://techcrunch.com/2019/10/16/microsoft-launches-new-open-source-projects-around-kubernetes-and-microservices/"
+      }
+    ]
+  },
+  {
+    "name": "Google",
+    "stockSymbol": "GOOG",
+    "logo": "http://www.andersonmorgan.com.au/wp-content/uploads/2018/03/google-logo-icon-PNG-Transparent-Background-768x768.png",
+    "news": [
+      {
+        "headline": "Google’s Stadia wireless controller won’t be very wireless at launch",
+        "detail": "You’ll probably be plugging in Google’s wireless Stadia controller when the cloud gaming service launches on November 19th. While it’ll work wirelessly while playing Stadia on a Chromecast Ultra, you’ll have to plug in a USB-C cable to use it with computers or phones at launch, Google tells The Verge.         When Google first showed off the controller in March, the company touted how you could seamlessly switch from gaming on your TV to a laptop or phone while using the same exact controller, without having to pair it to each device — because the controller would stay directly connected to Stadia’s servers over its own Wi-Fi.",
+        "link": "https://www.theverge.com/2019/10/16/20918208/google-stadia-controller-wireless-tv-chromecast-ultra-cloud-gaming"
+      },
+      {
+        "headline": "Google Clips is dead",
+        "detail": "Google may have introduced a lot of new Pixel camera tech at its 2019 fall hardware event this week, but it quietly retired a camera product as well: the Google Clips camera has been removed from Google’s online store (via 9to5Google). Google hasn’t responded to The Verge’s request for comment to confirm. The idea for Clips was an intriguing one: it was a tiny AI-powered wide angle camera designed to automatically capture short videos of precious moments with your loved ones. In theory, by setting up a Clips camera in your house, you wouldn’t have to worry about quick-drawing your phone to record your baby’s first steps.",
+        "link": "https://www.theverge.com/2019/10/16/20917386/google-clips-dead-discontinued-rip-camera-ai"
+      },
+      {
+        "headline": "Up close with Google’s budget Chromebook, the Pixelbook Go",
+        "detail": "The Chromebook has been a marked hit for Google — well, for Google’s hardware partners, at least. Low-cost devices have flooded the market, with a stranglehold on the educational category in particular. Google’s own first-party offerings, on the other hand, have been a bit more curious. Devices like the Pixelbook and Pixel Slate have pushed the $1,000 price point in an attempt to demonstrate Chrome OS’s viability in a more premium tier. With the Pixelbook Go, on the other hand, Google’s playing much more to the cloud-based operating system’s strengths, with a far more accessible price point.",
+        "link": "https://techcrunch.com/2019/10/15/up-close-with-googles-budget-chromebook-the-pixelbook-go/"
+      }
+    ]
+  },
+  {
+    "name": "Apple Inc.",
+    "stockSymbol": "AAPL",
+    "logo": "https://www.litmos.com/wp-content/uploads/2016/01/apple-icon.png",
+    "news": [
+      {
+        "headline": "Apple’s iOS 13 is running on 50 percent of all iPhones after three weeks",
+        "detail": "Apple’s iOS 13 update may have been riddled with bugs over the course of its first few weeks post-release, but that hasn’t had a meaningful impact on user adoption. According to the company, more than 50 percent of all iPhones were running iOS 13 just 26 days after launch. That’s slower than iOS 12, which took just 23 days to hit 50 percent, but not by much. If you count only iPhones purchased in the last four years, the figure jumps up to 55 percent.",
+        "link": "https://www.theverge.com/2019/10/16/20918359/apple-iphone-11-pro-ios-13-adoption-rate-google-android-10"
+      },
+      {
+        "headline": "Apple iPhone 11 Pro Max vs. Huawei P30 Pro: Camera shootout",
+        "detail": "Which Android has the best camera? It might be Google's just-announced Pixel 4 phones, but for a large chunk of 2019 the answer was Huawei's P30 Pro. In fact, CNET's Andrew Hoyle said, upon its launch, that the P30 Pro took better photos than any other phone. Apple's phones captured better videos, but between the P30 Pro's quad-camera setup and features that include 5x optical zoom, Huawei (and Google) had topped Apple as an industry leader in still photography. ",
+        "link": "https://www.cnet.com/news/apple-iphone-11-pro-max-vs-huawei-p30-pro-camera-shootout/"
+      },
+      {
+        "headline": "Apple Shares Are Seeing Huge Demand",
+        "detail": "A gain of 51.34% in 2019 for shares of Apple Inc. (AAPL) tells a story of big buy demand for the shares. This is happening to one of the largest companies in the world. This buying is very unusual and has been very consistent in 2019. A great way to uncover tomorrow's winners is to look for great stocks seeing big buy activity, and Apple stock could be setting up for even more gains. ",
+        "link": "https://www.investopedia.com/apple-shares-are-seeing-huge-demand-4773296"
+      }
+    ]
+  },
+  {
+    "name": "Facebook",
+    "logo": "https://i.pinimg.com/originals/41/28/2b/41282b58cf85ddaf5d28df96ed91de98.png",
+    "stockSymbol": "FB2A",
+    "news": [
+      {
+        "headline": "Marc Benioff says it's time to break up Facebook",
+        "detail": "Salesforce (CRM) CEO Marc Benioff hasn't been sparing with his criticism of Facebook. But in an interview with CNN's Poppy Harlow Wednesday he went one significant step further and added his name to the list of those who support breaking up the social media giant. \"It's addictive, it's not good for you, they're after your kids, they're running political ads that aren't true ... and they're also acquiring other companies and co-mingling [data those companies have on their users] into theirs,\" Benioff said, referencing Facebook (FB)'s acquisitions of Instagram, WhatsApp and other tech platforms. \"And I think at that point, because they're now doing that, that they probably should be broken up. Because they're having an undue influence as the largest social media platform on the planet,\" he said.",
+        "link": "https://edition.cnn.com/2019/10/16/tech/salesforce-marc-benioff-break-up-facebook-boss-files/index.html"
+      },
+      {
+        "headline": "Facebook Moves Forward With Digital Currency 'Libra' Despite High-Profile Defections",
+        "detail": "Facebook officially moved forward with its plans Monday to create a new digital currency called Libra, despite several high-profile defections from the project and intense criticism from U.S. regulators and politicians. The Libra Association, the nonprofit that will govern the currency, officially signed on 21 charter members on Monday at the organization’s inaugural meeting in Geneva. Originally the Libra Association had 27 potential members, but several companies dropped out in recent days, including Visa, Mastercard and PayPal.",
+        "link": "https://time.com/5700429/facebook-launches-libra-digital-currency/"
+      },
+      {
+        "headline": "How Facebook shot themselves in the foot in their Elizabeth Warren spat",
+        "detail": "Over the weekend, Facebook likened itself to a broadcaster – inadvertently asking to be regulated. This was in the third round of an argument with Elizabeth Warren over the company’s choice to run Donald Trump’s $1m advertising campaign containing lies about Joe Biden. Facebook had a stated policy of not running deceptive ads, but changed it right before the ad ran – just for politicians’ messages. Warren took aim at the practice by headlining her own Facebook ad with the cheeky claim that Facebook CEO Mark Zuckerberg had just endorsed Trump, arguing that choosing to profit from lies amounts to an endorsement of a particular kind of candidate.",
+        "link": "https://www.theguardian.com/commentisfree/2019/oct/15/facebook-elizabeth-warren-regulation"
+      }
+    ]
+  },
+  {
+    "name": "IBM",
+    "logo": "https://upload.wikimedia.org/wikipedia/commons/thumb/5/51/IBM_logo.svg/640px-IBM_logo.svg.png",
+    "stockSymbol": "IBM",
+    "news": [
+      {
+        "headline": "IBM Earnings Fall in Prolonged Sales Slump",
+        "detail": "International Business Machines Corp. reported a fifth sequential quarter of falling sales, with the company’s legacy information-technology business holding back Chief Executive Ginni Rometty’s efforts to revive growth through the $34 billion acquisition of software giant Red Hat.",
+        "link": "https://www.wsj.com/articles/ibm-earnings-fall-in-prolonged-sales-slump-11571258768"
+      },
+      {
+        "headline": "IBM Poised for Another Sales Slide Despite Red Hat Deal: What to Watch",
+        "detail": "International Business Machines Corp. is expected to report third-quarter earnings after the market closes Wednesday. The results, which follow a string of quarterly revenue declines, will be the company’s first since it closed its $34 billion purchase of open-source software giant Red Hat.",
+        "link": "https://www.wsj.com/articles/ibm-poised-for-another-sales-slide-despite-red-hat-deal-what-to-watch-11571218204"
+      },
+      {
+        "headline": "Low Expectations Could Fuel IBM Upside",
+        "detail": "Dow component International Business Machines Corporation (IBM) reports earnings after Wednesday's closing bell, with Wall Street analysts expecting profits of $2.66 per share on $18.29 billion in third quarter revenues. IBM shares rallied to a nine-month high after the old-school tech giant beat second quarter estimates in July but relinquished those gains in August after the company updated guidance following the $34 billion Red Hat acquisition.",
+        "link": "https://www.investopedia.com/low-expectations-could-fuel-ibm-upside-4773325"
+      }
+    ]
+  },
+  {
+    "name": "BMW",
+    "logo": "https://seeklogo.com/images/B/bmw-logo-373B3370C2-seeklogo.com.png",
+    "stockSymbol": "BMW",
+    "news": [
+      {
+        "headline": "BMW 2 Series Gran Coupe: See It From Every Angle In 5 Official Videos",
+        "detail": "BMW has been selling a compact sedan smaller than the 3 Series for a few years, but the 1 Series Sedan is only offered in China and Mexico, therefore it’s far from being a global model. To fully go up against the Mercedes CLA around the world, the Bavarians upped their game this week with the unveiling of the 2 Series Gran Coupe. It rides on an evolution of the front-wheel-drive UKL platform underpinning its lesser cousin, and brings a more exciting exterior with more technology inside. These official videos allow us to discover every little detail of the baby four-door coupe.",
+        "link": "https://www.motor1.com/news/376671/bmw-2-series-gran-coupe-videos/"
+      },
+      {
+        "headline": "New BMW F850R Patent Images Revealed",
+        "detail": "BMW Motorrad is getting ready with an updated model of the 2020 BMW F850R which will likely be unveiled at the EICMA 2019 motorcycle show in Milan, Italy in early November 2019. Patent images filed in Brazil show the new BMW F850R with a new swingarm, new frame, engine, bodywork, instrument panel and fuel tank. The new model also features a new exhaust system, which replaces the bulky, left side-mounted silencer of the old F850R, and now moves to the right side of the bike. The front fork and wheels look like they have not undergone any major changes in the new model.",
+        "link": "https://auto.ndtv.com/news/new-bmw-f850r-patent-images-revealed-2117887"
+      },
+      {
+        "headline": "BMW extends UK recall over fire risk",
+        "detail": "In 2018, BMW originally recalled 268,000 UK diesel cars after it was found that glycol leakage from the engine’s exhaust gas recirculation (EGR) cooler could result in burning soot deposits when combined with the high temperatures inside the EGR system. Now, this recall has been extended to a further 27,000 vehicles in the UK. A spokesperson for the Driver and Vehicle Standards Agency (DVSA) told us that BMW informed it of the extension to this recall around amonth ago, and it has updated the recall notice with the latest affected VIN numbers.",
+        "link": "https://www.which.co.uk/news/2019/10/bmw-extends-uk-recall-over-fire-risk/"
+      }
+    ]
+  }
+]

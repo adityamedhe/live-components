@@ -3,7 +3,7 @@ import {
   EntityStoreWatchManagerEventPayloads,
   LiveComponentEntity,
 } from 'live-components-api';
-import { Collection, ChangeStream, ObjectId } from 'mongodb';
+import { Collection, ChangeStream } from 'mongodb';
 import { EventEmitter } from 'events';
 
 export class EntityStoreWatchManagerMongo<T extends LiveComponentEntity>
@@ -50,6 +50,6 @@ export class EntityStoreWatchManagerMongo<T extends LiveComponentEntity>
   };
 
   getEntity = async (entityId: string) => {
-    return this.collection.findOne({ _id: new ObjectId(entityId) });
+    return this.collection.findOne({ _id: entityId });
   };
 }

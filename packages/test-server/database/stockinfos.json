@@ -1,0 +1,28 @@
+[
+  {
+    "_id": "MSFT",
+    "currentValue": 1214.34,
+    "info": {
+      "open": 11.31,
+      "high": 134.123,
+      "low": 13.14
+    },
+    "trend": {
+      "direction": 1,
+      "percentage": 23.4
+    }
+  },
+  {
+    "_id": "GOOG",
+    "currentValue": 1214.34,
+    "info": {
+      "open": 11.31,
+      "high": 134.123,
+      "low": 13.14
+    },
+    "trend": {
+      "direction": 1,
+      "percentage": 23.4
+    }
+  }
+]

@@ -1,51 +1,37 @@
-import React from 'react';
-import { LiveComponentEntity } from 'live-components-api';
-import {
-  ILiveComponentHocProps,
-  makeComponentLive,
-} from 'ui-agent-react-socketio';
+import React, { CSSProperties } from 'react';
+import { Container, Row, Col } from 'reactstrap';
 
-export interface IRestaurant extends LiveComponentEntity {
-  name: string;
-  address: string;
-}
+import { Feed } from './components/Feed';
+import { IStyles } from './interfaces/types';
 
-export interface IAppProps {
-  inputNumber?: number;
-}
-
-export class App extends React.Component<
-  ILiveComponentHocProps<IRestaurant> & IAppProps
-> {
-  componentDidMount() {
-    this.props.subscribeToEntity('5da54d7388258b62ea8633b4');
-  }
-
+export class App extends React.Component {
   render() {
-    const { entity } = this.props;
-
-    if (!entity) {
-      return null;
-    }
-
     return (
-      <div style={divStyle}>
-        <div style={{ fontSize: 24, fontWeight: 'bold' }}>{entity.name}</div>
-        <i>{entity.address}</i>
-      </div>
+      <Container fluid style={styles.page}>
+        <Row>
+          <Col style={styles.header}>
+            <h1 style={{ fontSize: 48 }}>The Corporate Express</h1>
+            <h5>Bite-sized news from the industry, at a glance</h5>
+          </Col>
+        </Row>
+        <hr />
+        <Row className="mt-5">
+          <Col>
+            <Feed />
+          </Col>
+        </Row>
+      </Container>
     );
   }
 }
 
-export default makeComponentLive<IRestaurant, IAppProps>({
-  liveComponentServerUri: 'ws://localhost:5000',
-})(App);
+export default App;
 
-const divStyle = {
-  border: '1px grey solid',
-  padding: '20px 40px',
-  backgroundColor: '#efefef',
-  display: 'inline-block',
-  borderRadius: 4,
-  boxShadow: '1px 1px 1px grey',
+const styles: IStyles = {
+  page: {
+    padding: '20px 100px',
+  },
+  header: {
+    textAlign: 'center',
+  },
 };
