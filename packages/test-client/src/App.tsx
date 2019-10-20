@@ -1,4 +1,4 @@
-import React, { CSSProperties } from 'react';
+import React from 'react';
 import { Container, Row, Col } from 'reactstrap';
 
 import { Feed } from './components/Feed';
@@ -9,9 +9,18 @@ export class App extends React.Component {
     return (
       <Container fluid style={styles.page}>
         <Row>
+          <Col></Col>
           <Col style={styles.header}>
             <h1 style={{ fontSize: 48 }}>The Corporate Express</h1>
             <h5>Bite-sized news from the industry, at a glance</h5>
+          </Col>
+          <Col style={styles.infoCol}>
+            A test project created by Aditya Medhe (2017HT13165) for
+            demonstration of <b>LiveComponents</b>, the dissertation project for
+            final semester WILP. <br />{' '}
+            <i>
+              All data and figures are dummy and do not represent real world
+            </i>
           </Col>
         </Row>
         <hr />
@@ -33,5 +42,9 @@ const styles: IStyles = {
   },
   header: {
     textAlign: 'center',
+  },
+  infoCol: {
+    color: 'grey',
+    textAlign: 'right',
   },
 };

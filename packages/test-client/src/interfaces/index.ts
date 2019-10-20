@@ -27,7 +27,7 @@ export interface IStockInfo extends LiveComponentEntity {
   };
 }
 
-enum StockTrendDirection {
+export enum StockTrendDirection {
   UP = 1,
   DOWN = 2,
 }

@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Axios from 'axios';
+
 import { ICompany } from '../interfaces';
 import { IStyles } from '../interfaces/types';
 import { NewsList } from './NewsList';
@@ -46,14 +47,14 @@ export class CompanyCard extends React.Component<
         <div
           style={{
             padding: 15,
+            width: '100%',
           }}
         >
           <img src={logo} style={{ height: 45, float: 'right' }} alt="" />
           <h3 style={{ display: 'inline-block' }}>{name}</h3>&nbsp;
-          <span>({stockSymbol})</span>
         </div>
-        <StockInfo />
-        <div style={{ padding: 15 }}>
+        <StockInfo symbol={stockSymbol} />
+        <div style={{ padding: 15, width: '100%' }}>
           <NewsList newsList={news} />
         </div>
       </div>

@@ -1,5 +1,6 @@
 import express from 'express';
 import { connect } from 'mongodb';
+import { readFileSync } from 'fs';
 
 import { EntityStoreWatchManagerMongo } from 'entitystore-watch-manager-mongo';
 import { ClientManagerSocketIO } from 'client-manager-socketio';
@@ -8,12 +9,17 @@ import { EntityStoreWatchManager, ClientManager } from 'live-components-api';
 import { IStockInfo, ICompany } from './interfaces';
 import {
   convertMongoIdToLiveComponentId,
-  updateDocumentValueRandomly,
+  updateStockInfosRandomly,
 } from './util';
 
 // Initialize Express app and HTTP Server
 const app = express();
 app.listen(5000, () => console.log('Express app listening on port 5000'));
+
+// Read the file containing the dummy data for stocks
+const stockInfosJson = readFileSync('./database/stockinfos.json', {
+  encoding: 'utf-8',
+});
 
 (async () => {
   const client = await connect(
@@ -24,7 +30,8 @@ app.listen(5000, () => console.log('Express app listening on port 5000'));
   const companies = client.db('test').collection('companies');
   const stockInfos = client.db('test').collection('stockinfos');
 
-  updateDocumentValueRandomly(stockInfos, 'currentValue');
+  // Start updating the stock data in the database with random values periodically
+  updateStockInfosRandomly(stockInfosJson, stockInfos);
 
   app.use((req, res, next) => {
     res.set('access-control-allow-origin', '*');

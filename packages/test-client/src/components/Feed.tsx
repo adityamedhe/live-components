@@ -1,7 +1,5 @@
 import * as React from 'react';
 import { CompanyCard } from './CompanyCard';
-import { IStyles } from '../interfaces/types';
-import { Col, Row } from 'reactstrap';
 
 export class Feed extends React.Component {
   companySymbols = ['GOOG', 'MSFT', 'AAPL', 'FB2A', 'IBM', 'BMW'].reverse();
