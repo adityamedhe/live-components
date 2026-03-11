@@ -7,6 +7,6 @@
     "compile:all": "lerna run --parallel compile"
   },
   "devDependencies": {
-    "lerna": "^3.16.4"
+    "lerna": "^9.0.6"
   }
 }
